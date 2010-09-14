@@ -1,1 +1,37 @@
-This page is soon to come...
+h2. Import Using Columns and Arrays
+
+The @#import@ method can take an array of column names (string or symbols) and an array of arrays. Each child array represents an individual record and its list of values in the same order as the columns. This is the fastest import mechanism and also the most primitive.
+
+<pre>
+columns = [ :title, :author ]
+values = [ ['Book1', 'FooManChu'], ['Book2', 'Bob Jones'] ]
+
+# Importing without model validations
+Book.import columns, values, :validate => false
+
+# Import with model validations
+Book.import columns, values, :validate => true
+
+# when not specified :validate defaults to true
+Book.import columns, values
+</pre>
+
+h2. Import Using ActiveRecord Models
+
+The @#import@ method can take an array of models. The attributes will be pulled off from each model by looking at the columns available on the model.
+
+<pre>
+books = [ 
+  Book.new(:title => "Book 1", :author => "FooManChu"),
+  Book.new(:title => "Book 2", :author => "Bob Jones")
+]
+
+# without validations
+Book.import books, :validate => false
+
+# with validations
+Book.import books, :validate => true
+
+# when not specified :validate defaults to true
+Book.import books
+</pre>
