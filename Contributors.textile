@@ -1,0 +1,10 @@
+activerecord-import was written by Zach Dennis in 2006 and has evolved over time with contributions from the following individuals:
+
+* Blythe Dunham
+* Gabe da Silveira
+* Henry Work
+* James Herdman
+* Marcus Crafter
+* Thibaud Guillaume-Gentil
+* Mark Van Holstyn 
+* Victor Costan
