@@ -1,0 +1,3 @@
+* MySQL - supports core import functionality plus on duplicate key update support
+* PostgreSQL - supports core import functionality
+* SQLite3 - supports core import functionality
