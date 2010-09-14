@@ -10,6 +10,7 @@ values = [ ['Book1', 'FooManChu'], ['Book2', 'Bob Jones'] ]
 
 book = Book.create!(:title => "Book1", :author => "FooManChu")
 book.title = "Updated Book Title"
+book.author = "Bob Barker"
 
 # Attempt to import the existing book, but since it already exists, only the title will be updated
 Book.import [book], :on_duplicate_key_update => [:title]
