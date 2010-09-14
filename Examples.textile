@@ -1,3 +1,17 @@
+h2. Requiring Your Database Adapter
+
+To use activerecord-import the first thing you need to do is require it for your database adapter.
+
+<pre>
+require "activerecord-import/<adapter-name>"
+
+# Examples
+
+require "activerecord-import/mysql"
+require "activerecord-import/postgresql"
+require "activerecord-import/sqlite3"
+</pre>
+
 h2. Import Using Columns and Arrays
 
 The @#import@ method can take an array of column names (string or symbols) and an array of arrays. Each child array represents an individual record and its list of values in the same order as the columns. This is the fastest import mechanism and also the most primitive.
