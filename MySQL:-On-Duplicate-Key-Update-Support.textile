@@ -1,0 +1,34 @@
+MySQL supports @on duplicate key update@ which allows you to specify fields whose values should be updated if a primary or unique key constraint is violated. See http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html for more information from MySQL.
+
+activerecord-import also supports this for the MySQL database adapter.
+
+h2. On Duplicate Key Update: Basic Example
+
+<pre>
+columns = [ :title, :author ]
+values = [ ['Book1', 'FooManChu'], ['Book2', 'Bob Jones'] ]
+
+book = Book.create!(:title => "Book1", :author => "FooManChu")
+book.title = "Updated Book Title"
+
+# Attempt to import the existing book, but since it already exists, only the title will be updated
+Book.import [book], :on_duplicate_key_update => [:title]
+
+# => results in a Book with the title "Updated Book Title" and author "FooManChu"
+</pre>
+
+h2. On Duplicate Key Update: Custom Mappings Example
+
+<pre>
+columns = [ :title, :author ]
+values = [ ['Book1', 'FooManChu'], ['Book2', 'Bob Jones'] ]
+
+book = Book.create!(:title => "Book1", :author => "FooManChu")
+book.title = "Updated Book Title"
+
+# Attempt to import the existing book, but since it already exists, update only the 
+# author column using the title value
+Book.import [book], :on_duplicate_key_update => {:author => :title }
+
+# => results in a Book with the title "Book1" and author "Updated Book Title"
+</pre>
