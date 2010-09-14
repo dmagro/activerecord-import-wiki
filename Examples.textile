@@ -35,3 +35,25 @@ Book.import books, :validate => true
 # when not specified :validate defaults to true
 Book.import books
 </pre>
+
+h2. Import Using ActiveRecord Models and Explicit Column Names
+
+The @#import@ method can take an array of column names and an array of models. The column names are used to determine what fields of data should be imported. The following example will only import books with the @:title@ field:
+
+
+<pre>
+books = [ 
+  Book.new(:title => "Book 1", :author => "FooManChu"),
+  Book.new(:title => "Book 2", :author => "Bob Jones")
+]
+columns = [ :title ]
+
+# without validations
+Book.import columns, books, :validate => false
+
+# with validations
+Book.import columns, books, :validate => true
+
+# when not specified :validate defaults to true
+Book.import columns, books
+</pre>
