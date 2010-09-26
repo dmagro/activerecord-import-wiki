@@ -1,0 +1,13 @@
+As of activerecord-import 0.2.0 you no longer need to supply the adapter name when requiring the library. Before 0.2.0 you had to specify the adapter name in the require:
+
+<pre>
+require 'activerecord-import/mysql'
+</pre>
+
+Now you don't have to so you should update your code to load activerecord-import this way instead:
+
+<pre>
+require 'activerecord-import'
+</pre>
+
+This allows activerecord-import to see what adapter you are using and to automatically load the necessary support for that particular adapter.
