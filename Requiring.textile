@@ -21,7 +21,7 @@ If you cannot use the autorequire (perhaps you are connecting to multiple databa
 <pre>
 require 'activerecord-import' # this will autorequire support for the current ActiveRecord::Base.connection's adapter
 
-# the next two lines will specifically load support for mysql and sqlite3
-ActiveRecord::Import.require_adapter 'mysql'
+# the next two lines will specifically load support for mysql2 and sqlite3
+ActiveRecord::Import.require_adapter 'mysql2'
 ActiveRecord::Import.require_adapter 'sqlite3'
 </pre>
