@@ -1,3 +1,8 @@
-* MySQL - supports core import functionality plus on duplicate key update support
-* PostgreSQL - supports core import functionality
-* SQLite3 - supports core import functionality
+The following database adapter are currently supported:
+
+* MySQL - supports core import functionality plus on duplicate key update support (included in activerecord-import 0.1.0 and higher)
+* MySQL2 - supports core import functionality plus on duplicate key update support (included in activerecord-import 0.2.0 and higher)
+* PostgreSQL - supports core import functionality (included in activerecord-import 0.1.0 and higher)
+* SQLite3 - supports core import functionality (included in activerecord-import 0.1.0 and higher)
+
+If your adapter isn't listed here feel free to fork the project and contribute back by submitting a patch with tests. You could also open a github issue for it, but there are no guarantees I'll get to it any time soon.
