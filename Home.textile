@@ -16,6 +16,8 @@ This may work fine if all you have is 10 records, but if you have hundreds, thou
 
 h2. An Introductory Example
 
+_To run examples on this page you'll need to first require activerecord-import, for that please take a brief look at [[Requiring]]_.
+
 Here's an example with equivalent behaviour using the @#import@ method:
 
 <pre>
