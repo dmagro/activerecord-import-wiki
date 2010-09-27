@@ -1,27 +1,23 @@
-h1. Autorequiring
+There are essentially two ways to require activerecord-import:
 
-As of activerecord-import 0.2.0 you no longer need to supply the adapter name when requiring the library. Before 0.2.0 you had to specify the adapter name in the require:
+* Using Bundler (default Rails 3 app uses this)
+* Not using Bundler
+
+h2. Using Bundler
+
+There are two ways you can use Bundler. First, the Rails 3 way.
+
+h3. The Rails 3 Way - autoloading gem dependencies
+
+Rails 3 by default autoloads your gem dependencies (thanks to config/application.rb). When this happens you only need to make sure activerecord-import is specified as a gem dependency in your Gemfile. 
+
+h3. Not autoloading
+
+If your gem dependencies aren't autoloaded then simply require activerecord-import after activerecord has been loaded, ie:
 
 <pre>
-require 'activerecord-import/mysql'
-</pre>
-
-Now you don't have to so you should update your code to load activerecord-import this way instead:
-
-<pre>
+require 'active_record'
 require 'activerecord-import'
 </pre>
 
-This allows activerecord-import to see what adapter you are using and to automatically load the necessary support for that particular adapter.
-
-h1. Loading specific adapters
-
-If you cannot use the autorequire (perhaps you are connecting to multiple databases with different database adapters) you can force activerecord-import to load support for one or more adapters using the following mechanism:
-
-<pre>
-require 'activerecord-import' # this will autorequire support for the current ActiveRecord::Base.connection's adapter
-
-# the next two lines will specifically load support for mysql2 and sqlite3
-ActiveRecord::Import.require_adapter 'mysql2'
-ActiveRecord::Import.require_adapter 'sqlite3'
-</pre>
+That's it. 
