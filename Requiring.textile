@@ -1,7 +1,10 @@
+
 There are essentially two ways to require activerecord-import:
 
 * Using Bundler (default Rails 3 app uses this)
 * Not using Bundler
+
+_These instructions only work for activerecord-import 0.2.0 or higher. If you have a version before 0.2.0 then upgrade._
 
 h2. Using Bundler
 
@@ -10,6 +13,10 @@ There are two ways you can use Bundler. First, the Rails 3 way.
 h3. The Rails 3 Way - autoloading gem dependencies
 
 Rails 3 by default autoloads your gem dependencies (thanks to config/application.rb). When this happens you only need to make sure activerecord-import is specified as a gem dependency in your Gemfile. 
+
+<pre>
+  gem "activerecord-import", ">= 0.2.0"
+</pre>
 
 h3. Not autoloading
 
