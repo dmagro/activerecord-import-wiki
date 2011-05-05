@@ -1,6 +1,6 @@
 h1. activerecord-import
 
-activerecord-import is a library for bulk inserting data using ActiveRecord. 
+activerecord-import is a library for bulk inserting data using ActiveRecord.  *Note:* activerecord-import requires Rails 3.x. It does not work with Rails 2.x. 
 
 h2. Why activerecord-import?
 
@@ -42,4 +42,4 @@ Here's a list of some of the high-level features that activerecord-import provid
 
 h1. Upgrading from ar-extensions
 
-activerecord-import replaces the ar-extensions library and is compatible with Rails 3. It provides the exact same API for importing data, but it does not include any additional ar-extensions functionality.
+activerecord-import replaces the ar-extensions library and requires Rails 3. It provides the exact same API for importing data, but it does not include any additional ar-extensions functionality.
