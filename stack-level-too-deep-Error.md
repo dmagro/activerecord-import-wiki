@@ -8,3 +8,5 @@ Instead of saving all the records at one shot I have split my entries into multi
     cast_and_crew.each_slice(25) do |slice|
       CastAndCrew.import ["celebrity_role_id", "movie_id", "celebrity_id"], slice, :validate => false
     end
+
+@Empact: I think this is related to my pull request here, as I ran into the same problem: https://github.com/zdennis/activerecord-import/pull/20 I have it incorporated into my fork: https://github.com/Empact/activerecord-import
