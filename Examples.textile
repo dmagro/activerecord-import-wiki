@@ -58,4 +58,11 @@ Book.import columns, books, :validate => true
 
 # when not specified :validate defaults to true
 Book.import columns, books
+
+# result in table books
+ title  | author
+--------|--------
+ Book 1 | NULL   
+ Book 2 | NULL   
+
 </pre>
