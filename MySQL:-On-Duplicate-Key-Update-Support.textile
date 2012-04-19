@@ -1,4 +1,4 @@
-MySQL supports @on duplicate key update@ which allows you to specify fields whose values should be updated if a primary or unique key constraint is violated. See http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html for more information from MySQL.
+MySQL supports @on duplicate key update@ which allows you to specify fields whose values should be updated if a primary or unique key constraint is violated. See "http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html":http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html for more information from MySQL.
 
 activerecord-import also supports this for the MySQL database adapter.
 
