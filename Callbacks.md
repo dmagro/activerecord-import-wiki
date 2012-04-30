@@ -1,0 +1,1 @@
+Normal ActiveRecord callbacks will NOT be called when using activerecord-imports. This is because it is mass importing rows of data and doesn't necessarily have access to in-memory ActiveRecord objects. 
