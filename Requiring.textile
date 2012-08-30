@@ -1,4 +1,3 @@
-
 There are essentially two ways to require activerecord-import:
 
 * Using Bundler (default Rails 3 app uses this)
@@ -17,6 +16,25 @@ Rails 3 by default autoloads your gem dependencies (thanks to config/application
 <pre>
   gem "activerecord-import", ">= 0.2.0"
 </pre>
+
+You might however need to have the Import functionality for specific execution path with bundler having the gem not required by default for the full app.
+
+<pre>
+  gem 'activerecord-import', '~> 0.2.9', :require => false
+</pre>
+
+This does Not work if we just do require 'activerecord-import' in the file using the gem.
+However, we still want to use the gem. 
+This can still be done using following snippet for manual include in your file:
+
+<pre>
+  require "activerecord-import/base"
+  ActiveRecord::Import.require_adapter('mysql2')
+</pre>
+
+The mysql2 is your adapter. Could be dynamically got from ActiveRecord::Base.configurations.
+
+This allows it be used in a more isolated fashion, impacting only the file that it is needed.
 
 h3. Not autoloading
 
