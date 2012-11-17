@@ -17,7 +17,7 @@ Rails 3 by default autoloads your gem dependencies (thanks to config/application
   gem "activerecord-import", ">= 0.2.0"
 </pre>
 
-You might however need to have the Import functionality for specific execution path with bundler having the gem not required by default for the full app.
+You might however want to load activerecord-import on your own without the help of bundler. You can do this by telling bundler not to auto-require it.
 
 <pre>
   gem 'activerecord-import', '~> 0.2.9', :require => false
