@@ -20,7 +20,7 @@ Rails 3 by default autoloads your gem dependencies (thanks to config/application
 You might however want to load activerecord-import on your own without the help of bundler. You can do this by telling bundler not to auto-require it.
 
 <pre>
-  gem 'activerecord-import', '~> 0.2.9', :require => false
+  gem 'activerecord-import', '~> 0.3.1', :require => false
 </pre>
 
 This does Not work if we just do require 'activerecord-import' in the file using the gem.
