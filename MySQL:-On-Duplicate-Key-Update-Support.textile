@@ -5,9 +5,6 @@ activerecord-import also supports this for the MySQL database adapter.
 h2. On Duplicate Key Update: Basic Example
 
 <pre>
-columns = [ :title, :author ]
-values = [ ['Book1', 'FooManChu'], ['Book2', 'Bob Jones'] ]
-
 book = Book.create!(:title => "Book1", :author => "FooManChu")
 book.title = "Updated Book Title"
 book.author = "Bob Barker"
@@ -21,9 +18,6 @@ Book.import [book], :on_duplicate_key_update => [:title]
 h2. On Duplicate Key Update: Custom Mappings Example
 
 <pre>
-columns = [ :title, :author ]
-values = [ ['Book1', 'FooManChu'], ['Book2', 'Bob Jones'] ]
-
 book = Book.create!(:title => "Book1", :author => "FooManChu")
 book.title = "Updated Book Title"
 
