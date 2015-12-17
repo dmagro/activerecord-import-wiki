@@ -28,6 +28,7 @@ Book.import [book], :on_duplicate_key_update => {:author => :title }
 # => results in a Book with the title "Book1" and author "Updated Book Title"
 ```
 
-h3. Notice about uniqueness validation
+h3. Conflict with ActiveRecord uniqueness validation
 
-If you have a unique column (other than ID), don't use ActiveRecord uniqueness validator - it won't let to do the update. Use unique index on the database column instead.
+Don't use ActiveRecord uniqueness validator - it will make the update not happen.
+Use unique index on the database column if needed.
