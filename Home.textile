@@ -33,6 +33,22 @@ Book.import books
 
 This call to import does whatever is most efficient for the underlying database adapter.  Pretty slick, eh?
 
+h2. Multi-level Example
+
+Here's a multi-tier example using the @#import@ method:
+
+Assume that Books <code>has_many</code> Reviews
+
+<pre>
+books = []
+10.times do |i| 
+  book = Book.new(:name => "book #{i}")
+  book.reviews.build(:title => "Excellent")
+  books << book
+end
+Book.import books, recursive: true
+</pre>
+
 h2. Features
 
 Here's a list of some of the high-level features that activerecord-import provides:
