@@ -11,5 +11,5 @@ The tests run against different databases and active record versions.  This is o
 
     rm Gemfile.lock
     AR_VERSION=4.2 bundle install
-    AR_VERSION=4.2 bundle exec rake test:postgresql test:sqlite3 test:mysql
+    AR_VERSION=4.2 bundle exec rake test:postgresql test:sqlite3 test:mysql2
 
