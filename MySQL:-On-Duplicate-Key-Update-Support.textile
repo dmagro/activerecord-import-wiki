@@ -39,6 +39,7 @@ Book.import [book], :on_duplicate_key_update => "author = VALUES(author)"
 
 # => results in a Book with the title "Book1" and author "Bob Barker"
 ```
+
 h3. Conflict with ActiveRecord uniqueness validation
 
 Don't use ActiveRecord uniqueness validator - it will make the update not happen.
