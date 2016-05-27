@@ -28,6 +28,17 @@ Book.import [book], :on_duplicate_key_update => {:author => :title }
 # => results in a Book with the title "Book1" and author "Updated Book Title"
 ```
 
+h2. On Duplicate Key Update: Custom SQL Example
+
+```ruby
+book = Book.create!(:title => "Book1", :author => "FooManChu")
+book.title = "Bob Barker"
+
+# Attempt to import the existing book, but since it already exists, only the author will be updated
+Book.import [book], :on_duplicate_key_update => "author = VALUES(author)"
+
+# => results in a Book with the title "Book1" and author "Bob Barker"
+```
 h3. Conflict with ActiveRecord uniqueness validation
 
 Don't use ActiveRecord uniqueness validator - it will make the update not happen.
