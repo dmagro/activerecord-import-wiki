@@ -19,7 +19,7 @@ h2. On Duplicate Key Update: Custom Mappings Example
 
 ```ruby
 book = Book.create!(:title => "Book1", :author => "FooManChu")
-book.author = "Updated Book Title"
+book.title = "Updated Book Title"
 
 # Attempt to import the existing book, but since it already exists, update only the 
 # author column using the title value
@@ -32,7 +32,7 @@ h2. On Duplicate Key Update: Custom SQL Example
 
 ```ruby
 book = Book.create!(:title => "Book1", :author => "FooManChu")
-book.title = "Bob Barker"
+book.author = "Bob Barker"
 
 # Attempt to import the existing book, but since it already exists, only the author will be updated
 Book.import [book], :on_duplicate_key_update => "author = VALUES(author)"
