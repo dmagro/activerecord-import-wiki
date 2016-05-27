@@ -33,9 +33,9 @@ Book.import books
 
 This call to import does whatever is most efficient for the underlying database adapter.  Pretty slick, eh?
 
-h2. Multi-level Example
+h2. Recursive Example (PostgreSQL only)
 
-Here's a multi-tier example using the @#import@ method:
+Here's a recursive example using the @#import@ method:
 
 Assume that Books <code>has_many</code> Reviews
 
