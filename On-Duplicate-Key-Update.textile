@@ -1,0 +1,56 @@
+"MySQL":http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html and "PostgreSQL":https://www.postgresql.org/docs/current/static/sql-insert.html#SQL-ON-CONFLICT support @on duplicate key update@ (also known as "upsert") which allows you to specify fields whose values should be updated if a primary or unique key constraint is violated.
+
+One big difference between MySQL and PostgreSQL support is that MySQL will handle any conflict that happens, but PostgreSQL requires that you specify which columns the conflict would occur over.
+
+h2. Basic Update
+
+```ruby
+book = Book.create! title: "Book1", author: "FooManChu"
+book.title = "Updated Book Title"
+book.author = "Bob Barker"
+
+# MySQL version:
+Book.import [book], on_duplicate_key_update: [:title]
+# PostgreSQL version:
+Book.import [book], on_duplicate_key_update: {conflict_target: [:id], columns: [:title]}
+
+book.reload.title  # => "Updated Book Title" (changed)
+book.reload.author # => "FooManChu"          (stayed the same)
+```
+
+h2. Using the value from another column
+
+```ruby
+book = Book.create! title: "Book1", author: "FooManChu"
+book.title = "Updated Book Title"
+
+# MySQL version
+Book.import [book], on_duplicate_key_update: {author: :title}
+# PostgreSQL version
+# TODO: someone please fill this out
+
+book.reload.title  # => "Book1"              (stayed the same)
+book.reload.author # => "Updated Book Title" (changed)
+```
+
+h2. Using Custom SQL
+
+```ruby
+book = Book.create! title: "Book1", author: "FooManChu"
+book.author = "Bob Barker"
+
+# MySQL version
+Book.import [book], on_duplicate_key_update: "author = values(author)"
+# PostgreSQL version
+Book.import [book], on_duplicate_key_update: {
+  conflict_target: [:id], columns: "author = excluded.author"
+}
+
+book.reload.title  # => "Book1"      (stayed the same)
+book.reload.author # => "Bob Barker" (changed)
+```
+
+h3. Conflict with ActiveRecord uniqueness validation
+
+Don't use ActiveRecord uniqueness validator - it will make the update not happen.
+Use unique index on the database column if needed.
