@@ -1,4 +1,4 @@
-"MySQL":http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html and "PostgreSQL":https://www.postgresql.org/docs/current/static/sql-insert.html#SQL-ON-CONFLICT support @on duplicate key update@ (also known as "upsert") which allows you to specify fields whose values should be updated if a primary or unique key constraint is violated.
+"MySQL":http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html and "PostgreSQL":https://www.postgresql.org/docs/current/static/sql-insert.html#SQL-ON-CONFLICT (9.5+) support @on duplicate key update@ (also known as "upsert") which allows you to specify fields whose values should be updated if a primary or unique key constraint is violated.
 
 One big difference between MySQL and PostgreSQL support is that MySQL will handle any conflict that happens, but PostgreSQL requires that you specify which columns the conflict would occur over.
 
