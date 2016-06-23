@@ -33,7 +33,7 @@ Book.import books
 
 This call to import does whatever is most efficient for the underlying database adapter.  Pretty slick, eh?
 
-h2. Recursive Example (PostgreSQL only)
+h2. Recursive Example (PostgreSQL / SQLite)
 
 Here's a recursive example using the @#import@ method:
 
