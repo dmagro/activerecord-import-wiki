@@ -9,10 +9,10 @@ book = Book.create! title: "Book1", author: "FooManChu"
 book.title = "Updated Book Title"
 book.author = "Bob Barker"
 
-# MySQL version:
+# MySQL version
 Book.import [book], on_duplicate_key_update: [:title]
 
-# PostgreSQL version:
+# PostgreSQL version
 Book.import [book], on_duplicate_key_update: {conflict_target: [:id], columns: [:title]}
 
 # PostgreSQL shorthand version (conflict target must be primary key)
