@@ -29,7 +29,9 @@ book.title = "Updated Book Title"
 Book.import [book], on_duplicate_key_update: {author: :title}
 
 # PostgreSQL version
-Book.import [book], on_duplicate_key_update: {conflict_target: [:id], columns: {author: :title}}
+Book.import [book], on_duplicate_key_update: {
+  conflict_target: [:id], columns: {author: :title}
+}
 
 book.reload.title  # => "Book1"              (stayed the same)
 book.reload.author # => "Updated Book Title" (changed)
