@@ -11,6 +11,7 @@ book.author = "Bob Barker"
 
 # MySQL version:
 Book.import [book], on_duplicate_key_update: [:title]
+
 # PostgreSQL version:
 Book.import [book], on_duplicate_key_update: {conflict_target: [:id], columns: [:title]}
 
@@ -26,8 +27,9 @@ book.title = "Updated Book Title"
 
 # MySQL version
 Book.import [book], on_duplicate_key_update: {author: :title}
+
 # PostgreSQL version
-# TODO: someone please fill this out
+Book.import [book], on_duplicate_key_update: {conflict_target: [:id], columns: {author: :title}}
 
 book.reload.title  # => "Book1"              (stayed the same)
 book.reload.author # => "Updated Book Title" (changed)
@@ -41,6 +43,7 @@ book.author = "Bob Barker"
 
 # MySQL version
 Book.import [book], on_duplicate_key_update: "author = values(author)"
+
 # PostgreSQL version
 Book.import [book], on_duplicate_key_update: {
   conflict_target: [:id], columns: "author = excluded.author"
