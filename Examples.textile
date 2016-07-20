@@ -66,3 +66,21 @@ Book.import columns, books
  Book 2 | NULL   
 
 </pre>
+
+h2. Import and batching
+
+The @#import@ method can take a @:batch_size@ option to control the number of rows to insert per INSERT statement. The default is the total number of records being inserted so there is a single INSERT statement.
+
+<pre>
+books = [ 
+  Book.new(:title => "Book 1", :author => "FooManChu"),
+  Book.new(:title => "Book 2", :author => "Bob Jones"),
+  Book.new(:title => "Book 1", :author => "John Doe"),
+  Book.new(:title => "Book 2", :author => "Richard Wright")
+]
+columns = [ :title ]
+
+# 2 INSERT statements for 4 records
+Book.import columns, books, :batch_size => 2
+
+</pre>
