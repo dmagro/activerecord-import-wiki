@@ -6,7 +6,6 @@ If you do have a collection of in-memory ActiveRecord objects you can do somethi
 books.each do |book|
   book.run_callbacks(:save) { false }
   book.run_callbacks(:create) { false }
-
 end
 Book.import(books)
 ```
