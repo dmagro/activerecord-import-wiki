@@ -9,8 +9,8 @@ book.author = "Bob Barker"
 
 Book.import [book], on_duplicate_key_ignore: true
 
-book.reload.title  # => "Book1"              (stayed the same)
-book.reload.author # => "FooManChu"          (stayed the same)
+book.reload.title  # => "Book1"     (stayed the same)
+book.reload.author # => "FooManChu" (stayed the same)
 ```
 
 ### Conflict with ActiveRecord uniqueness validation
