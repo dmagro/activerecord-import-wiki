@@ -12,8 +12,3 @@ Book.import [book], on_duplicate_key_ignore: true
 book.reload.title  # => "Book1"     (stayed the same)
 book.reload.author # => "FooManChu" (stayed the same)
 ```
-
-### Conflict with ActiveRecord uniqueness validation
-
-Don't use ActiveRecord uniqueness validator - it will make the update not happen.
-Use unique index on the database column if needed.
