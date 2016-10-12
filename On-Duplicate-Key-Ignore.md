@@ -12,3 +12,6 @@ Book.import [book], on_duplicate_key_ignore: true
 book.reload.title  # => "Book1"     (stayed the same)
 book.reload.author # => "FooManChu" (stayed the same)
 ```
+
+## Note
+The option `:on_duplicate_key_ignore` is bypassed when `:recursive` is enabled for SQLite and Postgres imports.
