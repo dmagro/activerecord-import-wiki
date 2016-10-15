@@ -1,9 +1,8 @@
 h1. activerecord-import
 
-activerecord-import is a library for bulk inserting data using ActiveRecord.  *Note:* activerecord-import requires Rails 3.x. It does not work with Rails 2.x. 
+activerecord-import is a library for bulk inserting data using ActiveRecord.
 
-See the "docs for 3.x":http://rubydoc.info/gems/activerecord-import/0.3.1/ActiveRecord/Base
-
+See the latest "docs":http://rubydoc.info/gems/activerecord-import/ActiveRecord/Base.
 
 h2. Why activerecord-import?
 
