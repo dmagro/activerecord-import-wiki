@@ -7,10 +7,10 @@ h2. Benchmarking InnoDb Tables
 Creating 1000 records...
 
 | create | 2.734631 | |
-| import(column, values) with validations | 0.319718 | 6.6x speedup |
-| import(columns, values) without validations | 0.081496 | 25x speedup |
-| import(models) for 1000 records with validations | 0.507533 | 4x speedup |
-| import(models) without validations | 0.099062 | 20x speedup |
+| import(column, values) with validations | 0.319718 | 8.55x speedup |
+| import(columns, values) without validations | 0.081496 | 33.56x speedup |
+| import(models) for 1000 records with validations | 0.507533 | 5.39x speedup |
+| import(models) without validations | 0.099062 | 27.61x speedup |
 
 h2. Benchmarking MyISAM Tables
 
